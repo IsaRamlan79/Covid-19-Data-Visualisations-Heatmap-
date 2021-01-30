@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<head>
+    <title>Covid-19 Cases in Heatmap</title>
+    <img style="width: 220px; height: 132px;"onclick="MainPage()" alt="Logo" src="Logo%202.png" align="right" vspace="25"><br>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet" /> 
+    <link rel="stylesheet" href="DesignMainPage.css">
+    
+<link rel="stylesheet" type="text/css" href="./color-legend/inspector.css">
+    <script type="text/javascript" src="bootstrap.min.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <style>
+	.calender-map {
+      font: 10px sans-serif;
+      shape-rendering: crispEdges;
+    }
+    .day {
+      stroke: #666;
+    }
+    .month {
+      fill: none;
+      stroke: #000;
+      stroke-width: 2px;
+    }
+    .death {
+      font: 10px sans-serif;
+      shape-rendering: crispEdges;
+    }
+    .day {
+      stroke: #666;
+    }
+    .month {
+      fill: none;
+      stroke: #000;
+      stroke-width: 2px;
+    }
+    .RdYlGn .q0-11{fill:rgb(165,0,38)}
+    .RdYlGn .q1-{fill:rgb(215,48,39)}
+    .RdYlGn .q2-11{fill:rgb(244,109,67)}
+    .RdYlGn .q3-11{fill:rgb(253,174,97)}
+    .RdYlGn .q4-11{fill:rgb(254,224,139)}
+    .RdYlGn .q5-11{fill:rgb(255,255,191)}
+    .RdYlGn .q6-11{fill:rgb(217,239,139)}
+    .RdYlGn .q7-11{fill:rgb(166,217,106)}
+    .RdYlGn .q8-11{fill:rgb(102,189,99)}
+    .RdYlGn .q9-11{fill:rgb(26,152,80)}
+    .RdYlGn .q10-11{fill:rgb(0,104,55)}
+    </style>
+</head>
+<body>
+  <!-- <img style="width: 220px; height: 132px;" alt="Logo" src="Logo%202.png" align="right" vspace="25"><br> -->
+  <div class="first">
+    <h1>Covid-19 Data Visualisation <br>in Malaysia</br></h1>
+  </div>
+  <div class="second">
+    <h1>3 Descriptive Types Data Visualisation on Covid-19</h1>
+    <h2>Choose 3 types of visualisation or make a comparison between these</h2>
+  </div>
+  <!-- Four buttons in a group -->
+<div class="btn-group" style="width:100%">
+  <button style="width:25%" onclick="Heatmap()">Heatmap</button>
+  <button style="width:25%"onclick="Bar()">Bar Chart</button>
+  <button style="width:25%"onclick="Line()">Line Chart</button>
+  <button style="width:25%"onclick="Com()">Comparisons of Visualisations </button>
+</div>
+  
+
+
+<div id="graph" class="aGraph">
+  <div class="Title1">
+  <h3>Calendar Heatmap for Daily Case(s)</h3></div>
+  <div class="calender-map">
+  </div>
+  <div class='my-legend'>
+    <div class='legend-title'>Color/Case(s)</div>
+    <div class='legend-scale'>
+      <ul class='legend-labels'>
+
+        <!-- biru ke merah pekat -->
+        <li><span style='background:#00e4ff;'></span>0</li>
+        <li><span style='background:#00ffa8;'></span>200</li>
+        <li><span style='background:#00ff36;'></span>400</li>
+        <li><span style='background:#3eff00;'></span>600</li>
+        <li><span style='background:#b0ff00;'></span>800</li>
+        <li><span style='background:#FFfa00;'></span>1000</li>
+        <li><span style='background:#FFdc00;'></span>1200</li>
+        <li><span style='background:#FFbe00;'></span>1400</li>
+        <li><span style='background:#FFa000;'></span>1600</li>
+        <li><span style='background:#FF8200;'></span>1800</li>
+        <li><span style='background:#FF6400;'></span>2000</li>
+        <li><span style='background:#FF4600;'></span>2200</li>
+        <li><span style='background:#FF2800;'></span>2400</li>
+        <li><span style='background:#FF0000;'></span>2600</li>
+        <li><span style='background:#e10000;'></span>2800</li>
+        <li><span style='background:#c30000;'></span>3000</li>
+        <li><span style='background:#a50000;'></span>3200</li>
+        <li><span style='background:#910000;'></span>3400</li>
+        <li><span style='background:#7d0000;'></span>3600</li>
+        <li><span style='background:#690000;'></span>3800</li>
+        <li><span style='background:#550000;'></span>4000</li>
+<!-- biru ke merah cair -->
+        <!-- <li><span style='background:#FFfa00;'></span>0</li>
+        <li><span style='background:#FFe600;'></span>200</li>
+        <li><span style='background:#FFd200;'></span>400</li>
+        <li><span style='background:#FFbe00;'></span>600</li>
+        <li><span style='background:#FFaa00;'></span>800</li>
+        <li><span style='background:#FF9600;'></span>1000</li>
+        <li><span style='background:#FF8200;'></span>1200</li>
+        <li><span style='background:#FF6e00;'></span>1400</li>
+        <li><span style='background:#FF5a00;'></span>1600</li>
+        <li><span style='background:#FF4600'></span>1800</li>
+        <li><span style='background:#FF3200'></span>2000</li>
+        <li><span style='background:#FF1e00'></span>2200</li>
+        <li><span style='background:#FF0a00;'></span>2400</li>
+        <li><span style='background:#e10000;'></span>2600</li>
+        <li><span style='background:#cd0000;'></span>2800</li>
+        <li><span style='background:#b90000;'></span>3000</li>
+        <li><span style='background:#a50000;'></span>3200</li>
+        <li><span style='background:#910000;'></span>3400</li>
+        <li><span style='background:#7d0000'></span>3600</li>
+        <li><span style='background:#690000'></span>3800</li>
+        <li><span style='background:#550000'></span>4000</li> -->
+
+<!-- kUNING -->
+        <!-- <li><span style='background:#fded86;'></span>0</li>
+        <li><span style='background:#fde86e;'></span>400</li>
+        <li><span style='background:#f9d063;'></span>800</li>
+        <li><span style='background:#f5b857;'></span>1200</li>
+        <li><span style='background:#f0a04b;'></span>1600</li>
+        <li><span style='background:#eb8a40;'></span>2000</li>
+        <li><span style='background:#e77235;'></span>2400</li>
+        <li><span style='background:#e35b2c;'></span>2800</li>
+        <li><span style='background:#c74e29;'></span>3200</li>
+        <li><span style='background:#9d4429'></span>3600</li>
+        <li><span style='background:#753c2c'></span>4000</li>
+        <li><span style='background:#4c3430'></span>4400</li>
+      </ul> -->
+
+
+
+    <!-- </div>
+    
+      <div class='my-legend'>
+        <div class='legend-title'>Color/Case(s)</div>
+        <div class='legend-scale'>
+          <ul class='legend-labels'>
+            
+            <li><span style='background:#00e4ff;'></span>0</li>
+            <li><span style='background:#00ffa8;'></span>400</li>
+            <li><span style='background:#00ff36;'></span>800</li>
+            <li><span style='background:#3eff00;'></span>1200</li>
+            <li><span style='background:#b0ff00;'></span>1600</li>
+            <li><span style='background:#FFfa00;'></span>2000</li>
+            <li><span style='background:#FFdc00;'></span>2400</li>
+            <li><span style='background:#FFbe00;'></span>2800</li>
+            <li><span style='background:#FFa000;'></span>3200</li>
+            <li><span style='background:#FF8200'></span>3600</li>
+            <li><span style='background:#FF6400'></span>4000</li>
+            <li><span style='background:#FF4600'></span>4400</li>
+            <li><span style='background:#FF2800'></span>4400</li>
+            <li><span style='background:#FF0a00'></span>4400</li>
+           
+          </ul>
+        </div>  -->
+  <div class="Title2">
+ <h3>Calendar Heatmap for Death Case(s)</h3></div>
+<div class="death"></div>
+
+<div class="deathcopy"></div>
+</div>
+<div class='my-legend'>
+  <div class='legend-title'>Color/Death(s)</div>
+  <div class='legend-scale'>
+    
+   
+    <ul class='legend-labels'>
+
+      <li><span style='background:#00e4ff;'></span>0</li>
+      <li><span style='background:#00ffa8;'></span>1</li>
+      <li><span style='background:#00ff36;'></span>2</li>
+      <li><span style='background:#3eff00;'></span>3</li>
+      <li><span style='background:#b0ff00;'></span>4</li>
+      <li><span style='background:#FFfa00;'></span>5</li>
+      <li><span style='background:#FFdc00;'></span>6</li>
+      <li><span style='background:#FFbe00;'></span>7</li>
+      <li><span style='background:#FFa000;'></span>8</li>
+      <li><span style='background:#FF8200;'></span>9</li>
+      <li><span style='background:#FF6400;'></span>10</li>
+      <li><span style='background:#FF4600;'></span>11</li>
+      <li><span style='background:#FF2800;'></span>12</li>
+      <li><span style='background:#FF0000;'></span>13</li>
+      <li><span style='background:#e10000;'></span>14</li>
+      <li><span style='background:#c30000;'></span>15</li>
+      <li><span style='background:#a50000;'></span>16</li>
+      <li><span style='background:#910000;'></span>17</li>
+      <li><span style='background:#7d0000;'></span>18</li>
+      <li><span style='background:#690000;'></span>19</li>
+      <li><span style='background:#550000;'></span>20</li>
+       <!-- Purple -->
+      <!-- <li><span style='background:#f9cdac;'></span>0</li>
+      <li><span style='background:#f3aca2;'></span>2</li>
+      <li><span style='background:#ee8b97;'></span>4</li>
+      <li><span style='background:#e96a8d;'></span>6</li>
+      <li><span style='background:#db5087;'></span>8</li>
+      <li><span style='background:#b8428c;'></span>10</li>
+      <li><span style='background:#973490;'></span>12</li>
+      <li><span style='background:#742796;'></span>14</li>
+      <li><span style='background:#5e1f88;'></span>16</li>
+      <li><span style='background:#4d1a70;'></span>20</li>
+      <li><span style='background:#3d1459;'></span>22</li>
+      <li><span style='background:#2d0f41;'></span>24</li> -->
+    </ul> 
+  </div>
+
+<div class="calender-map"></div>
+<script type="text/javascript" src="calendarmapDailyCase.js">
+</script>
+<!-- <script type="text/javascript" src="CalendarMapDailySecondColor.js">
+</script> -->
+
+
+  
+  
+  <style type='text/css'>
+    .my-legend .legend-title {
+      text-align: left;
+      padding-left: 13em;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 70%;
+      }
+    .my-legend .legend-scale ul {
+      margin: 0;
+      padding-left: 9em;
+      float: left;
+      list-style: none;
+      }
+    .my-legend .legend-scale ul li {
+      display: block;
+      float: left;
+      width: 50px;
+      margin-bottom: 6px;
+      text-align: left;
+      font-size: 80%;
+      list-style: none;
+      }
+    .my-legend ul.legend-labels li span {
+      display: block;
+      float: left;
+      height: 15px;
+      width: 50px;
+      
+      }
+    
+   
+  </style>
+
+<script src="Line.js"></script>
+<script type="text/javascript" src="calendarmapDeath.js"></script>
+
+
+
+<!-- <script type="text/javascript" src="calendarmapDeathcopy.js"></script> -->
+<script>
+function MainPage() {
+window.open("Interface.html","_self");
+}
+function Heatmap() {
+  window.open("Heatmap.html","_self");
+}
+  function Bar(){ 
+    
+  window.open("Bar.html","_self");
+  }
+  function Line() {
+  window.open("Line.html","_self");
+}
+function Com() {
+  window.open("Comparison.html","_self");}</script>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "@d3/color-legend",
+  "main": "a33468b95d0b15b0@699.js",
+  "version": "699.0.0",
+  "homepage": "https://observablehq.com/@d3/color-legend",
+  "author": {
+    "name": "D3",
+    "url": "https://observablehq.com/@d3"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

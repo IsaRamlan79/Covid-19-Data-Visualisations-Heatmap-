@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Covid-19 Cases in Line Graph</title>
+
+<link rel="stylesheet" href="./Covid-19 Line Graph/DesignMainPage.css">
+<link rel="stylesheet" type="text/css" href="./Covid-19 Line Graph/inspector.css">
+<link rel="stylesheet" href="./Covid-19 Line Graph/DesignLine.css">
+<link href="bootstrap.css" rel="stylesheet" />
+<body>
+  <img style="width: 220px; height: 132px;" onclick="MainPage()"alt="Logo" src="Logo%202.png" align="right" vspace="25">
+    <!-- <img style="width: 220px; height: 132px;" alt="Logo" src="Logo%202.png" align="right" vspace="25"><br> -->
+  <div class="first">
+    <h1>Covid-19 Data Visualisation <br>in Malaysia</br></h1>
+  </div>
+  <div class="second">
+    <h1>3 Descriptive Types Data Visualisation on Covid-19</h1>
+    <h2>Choose 3 types of visualisation or make a comparison between these</h2>
+  </div>
+  <!-- Four buttons in a group -->
+<div class="btn-group" style="width:100%">
+  <button style="width:25%" onclick="Heatmap()">Heatmap</button>
+  <button style="width:25%"onclick="Bar()">Bar Chart</button>
+  <button style="width:25%"onclick="Line()">Line Chart</button>
+  <button style="width:25%"onclick="Com()">Comparisons of Visualisations </button>
+</div>
+
+<script type="module">
+
+import define from "./Covid-19 Line Graph/IndexLineDaily.js";
+import {Runtime, Library, Inspector} from "./Covid-19 Line Graph/runtime.js";
+
+const runtime = new Runtime();
+const main = runtime.module(define, Inspector.into(document.body));
+</script> 
+
+<script type="module">
+import define from "./Covid-19 Line Graph/IndexLineDeath.js";
+import {Runtime, Library, Inspector} from "./Covid-19 Line Graph/runtime.js";
+
+const runtime = new Runtime();
+const main = runtime.module(define, Inspector.into(document.body));
+
+</script>
+<script>
+function MainPage() {
+window.open("Interface.html","_self");
+}
+function Heatmap() {
+  window.open("Heatmap.html","_self");
+}
+  function Bar(){ 
+  window.open("Bar.html","_self");
+  }
+  function Line() {
+  window.open("Line.html","_self");
+}
+function Com() {
+  window.open("Comparison.html","_self");}</script>

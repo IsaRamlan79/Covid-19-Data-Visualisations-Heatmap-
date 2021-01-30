@@ -1,0 +1,9 @@
+
+
+<img style="width: 220px; height: 132px;" alt="Logo" src="Logo%202.png"
+align="right" vspace="25"><br>
+<div class="first">
+<h1 style="margin-left: 193px; width: 1362px;">Covid-19 Data
+Visualisation <br>
+in Malaysia</h1>
+</div>

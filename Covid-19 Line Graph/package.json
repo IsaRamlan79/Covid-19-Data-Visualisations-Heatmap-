@@ -1,0 +1,14 @@
+{
+  "name": "@jeantimex/how-to-draw-a-basic-line-chart",
+  "main": "3a9debeff1ee4e45@199.js",
+  "version": "199.0.0",
+  "homepage": "https://observablehq.com/@jeantimex/how-to-draw-a-basic-line-chart",
+  "author": {
+    "name": "Su",
+    "url": "https://observablehq.com/@jeantimex"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

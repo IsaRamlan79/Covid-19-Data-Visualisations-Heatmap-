@@ -1,0 +1,56 @@
+:root {
+    MainColor: #7dbbb9;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+    /* background-color: aqua; */
+}
+.first{
+    background-color:#7c7d85;
+    color: White;
+    padding: 1em;
+    text-align: center;
+    font-size: 0.9em;
+}
+.second{
+    color: #3c5d5c;
+    font-size: 0.75em;
+    text-align: center;
+    margin: 1em;
+}
+.second h2{
+  margin: 1em;
+    margin-top: 2em;
+    
+    
+    
+}
+.btn-group button {
+    background-color: #7dbbb9; /* Green background */
+    border: 3px solid black; /* Green border */
+    font-size: 0.9em;
+    color: black; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+    margin-bottom: 2em;
+    
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #46faf4;
+  }

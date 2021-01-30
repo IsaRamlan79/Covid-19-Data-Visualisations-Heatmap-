@@ -1,0 +1,14 @@
+{
+  "name": "@lg/analysis-of-covid-19-data-in-australia",
+  "main": "fd8ca65daf5bf966@291.js",
+  "version": "291.0.0",
+  "homepage": "https://observablehq.com/@lg/analysis-of-covid-19-data-in-australia",
+  "author": {
+    "name": "Leandra Gordon",
+    "url": "https://observablehq.com/@lg"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
